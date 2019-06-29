@@ -1,0 +1,9 @@
+<!-- app.component.html -->
+<div>
+  <h2>Star Wars Character Search</h2>
+  <input #term type="text" (keyup)="search(term.value)">
+  <hr>
+  <div *ngIf="results.length > 0">
+    <li *ngFor="let result of results">{{ result.name }} is a character with a height of {{ result.height }}.</li>
+  </div>
+</div>

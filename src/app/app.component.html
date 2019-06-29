@@ -1,0 +1,27 @@
+
+<div class="container">
+	<nav class="navbar navbar-default">
+		<ul class="nav navbar-nav">
+			<li>
+				<a routerLink="list">List</a>
+			</li>
+			<li>
+				<a routerLink="edit/0">Create</a>
+			</li>
+			<li>
+				<a routerLink = "department"> Department </a>
+			</li>
+			<li>
+				<a routerLink = "customer">Customer</a>
+			</li>
+			<li>
+				<a routerLink = "lazy1">Lazy</a>
+			</li>
+			<li>
+				<a routerLink = "practice">Practice</a>
+			</li>
+		</ul>
+	</nav>
+	<div *ngIf="showLoadingIndicator" class="spinner"></div>
+	<router-outlet></router-outlet>
+</div>
