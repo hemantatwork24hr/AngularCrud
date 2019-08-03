@@ -22,6 +22,9 @@ import { PracticeComponent } from './practice/practice.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AccordionComponent } from './shared/accordion.component';
+import { SortingComponent } from './sorting/sorting.component';
+import { MatPaginatorModule, MatSortModule, MatTableModule } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const appRoutes: Routes = [
   { path: 'list', 
@@ -35,11 +38,11 @@ const appRoutes: Routes = [
   { path: 'employees/:id', 
     component: EmployeeDetailsComponent,
     canActivate: [EmployeeDetailsGuardService ] },
-
   { path: 'department', component: DepartmentComponent },
   { path: 'practice', component: PracticeComponent },
-  { path: '', redirectTo: '/list', pathMatch: 'full' },
-  { path: 'notfound', component: PageNotFoundComponent }
+  // { path: '', redirectTo: '/list', pathMatch: 'full' },
+  { path: 'notfound', component: PageNotFoundComponent },
+  { path: '', component: SortingComponent }
 ];
 
 @NgModule({
@@ -55,14 +58,19 @@ const appRoutes: Routes = [
     PracticeComponent,
     EmployeeFilterPipe,
     PageNotFoundComponent,
-    AccordionComponent
+    AccordionComponent,
+    SortingComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot( appRoutes ),
     FormsModule,
     BsDatepickerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule, 
+    MatSortModule, 
+    MatTableModule,
+    BrowserAnimationsModule
   ],
   providers: [EmployeeService, EmployeeDetailsGuardService, CreateEmployeeCanDeactiveGuardService, EmployeeListResolverService],
   bootstrap: [AppComponent]

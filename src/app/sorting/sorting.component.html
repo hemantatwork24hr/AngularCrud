@@ -1,0 +1,31 @@
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource"
+               matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+            <mat-cell *matCellDef="let lesson">{{lesson.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+            <mat-cell class="description-cell"
+                      *matCellDef="let lesson">{{lesson.employee_name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+            <mat-cell class="duration-cell"
+                      *matCellDef="let lesson">{{lesson.employee_salary}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_age">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+            <mat-cell class="duration-cell"
+                      *matCellDef="let lesson">{{lesson.employee_age}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
